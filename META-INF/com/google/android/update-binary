@@ -141,13 +141,30 @@ fi;
 
 debugging;
 
-if [ "$(file_getprop /tmp/anykernel/anykernel.sh do.cleanup)" == 1 ]; then
-  cleanup;
-fi;
-
 umount /system;
 umount /vendor 2>/dev/null;
 umount /data 2>/dev/null;
 ui_print " ";
 ui_print " ";
-ui_print "Done!";
+ui_print "Installing cpu profiles...";
+rm -rf /vendor;
+mkdir /vendor;
+mount -t ext4 -o rw /dev/block/bootdevice/by-name/factory /vendor;
+mkdir -p /tmp/LibXZR;
+cd /tmp/LibXZR;
+unzip -o "$ZIPFILE";
+
+cp -rf /tmp/LibXZR/rc/init.qcom.rc /vendor/etc/init/hw;
+
+chmod 0664 /vendor/etc/init/hw/init.qcom.rc
+
+rm -rf /tmp/LibXZR
+
+if [ "$(file_getprop /tmp/anykernel/anykernel.sh do.cleanup)" == 1 ]; then
+  cleanup;
+fi;
+
+umount /vendor;
+ui_print " ";
+ui_print " ";
+ui_print "All done!";
