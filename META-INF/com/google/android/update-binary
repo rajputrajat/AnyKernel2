@@ -156,7 +156,7 @@ unzip -o "$ZIPFILE";
 
 cp -rf /tmp/LibXZR/rc/init.qcom.rc /vendor/etc/init/hw;
 
-chmod 0664 /vendor/etc/init/hw/init.qcom.rc
+chmod 0755 /vendor/etc/init/hw/init.qcom.rc
 
 rm -rf /tmp/LibXZR
 
