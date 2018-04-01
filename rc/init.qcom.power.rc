@@ -66,7 +66,7 @@ on enable-low-power
     write /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor interactive
     chmod 0444 /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor
     chmod 0644 /sys/devices/system/cpu/cpu2/cpufreq/interactive/target_loads
-    write /sys/devices/system/cpu/cpu2/cpufreq/interactive/target_loads "35 748800:30 902400:32 1132800:35 1286400:37 1440000:65 1670400:72 1747200:85 1824000:99 1977600:99 2150400:100"
+    write /sys/devices/system/cpu/cpu2/cpufreq/interactive/target_loads "35 748800:30 902400:32 1132800:35 1286400:37 1440000:65 1670400:72 1747200:85 1824000:99"
     write /sys/module/cpu_boost/parameters/input_boost_freq "0:0 1:0 2:0 3:0"
     chmod 0644 /sys/devices/system/cpu/cpu2/cpufreq/interactive/*
     write /sys/devices/system/cpu/cpu2/cpufreq/interactive/timer_slack -1
