@@ -154,9 +154,9 @@ mkdir -p /tmp/LibXZR;
 cd /tmp/LibXZR;
 unzip -o "$ZIPFILE";
 
-cp -rf /tmp/LibXZR/rc/init.qcom.rc /vendor/etc/init/hw;
+cp -rf /tmp/LibXZR/rc/init.qcom.power.rc /vendor/etc/init/hw;
 
-chmod 0755 /vendor/etc/init/hw/init.qcom.rc
+chmod 0755 /vendor/etc/init/hw/init.qcom.power.rc
 
 rm -rf /tmp/LibXZR
 
@@ -168,3 +168,4 @@ umount /vendor;
 ui_print " ";
 ui_print " ";
 ui_print "All done!";
+ui_print "Enjoy!";
