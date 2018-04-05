@@ -84,6 +84,9 @@ on enable-low-power
     write /sys/devices/system/cpu/cpu2/cpufreq/interactive/use_sched_load 0
     write /sys/devices/system/cpu/cpu2/cpufreq/interactive/boostpulse_duration 0
     write /sys/devices/system/cpu/cpu2/cpufreq/interactive/io_is_busy 0
+    chmod 0777 /sys/devices/system/cpu/cpu2/scaling_max_freq
+    write /sys/devices/system/cpu/cpu2/scaling_max_freq 2150400
+    chmod 0444 /sys/devices/system/cpu/cpu2/scaling_max_freq
 
     # Re-enable thermal hotplug
     write /sys/module/msm_thermal/core_control/enabled 1
@@ -143,7 +146,7 @@ on enable-low-power
     write /dev/cpuset/top-app/cpus 0-3
     write /dev/cpuset/foreground/boost/cpus 0-2
     write /dev/cpuset/foreground/cpus 0-2
-    write /dev/cpuset/background/cpus 0
+    write /dev/cpuset/background/cpus 0-1
     write /dev/cpuset/system-background/cpus 0-2
 
 service charger /sbin/chargeonlymode
