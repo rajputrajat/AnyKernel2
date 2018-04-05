@@ -86,7 +86,7 @@ on enable-low-power
     write /sys/devices/system/cpu/cpu2/cpufreq/interactive/io_is_busy 0
     chmod 0777 /sys/devices/system/cpu/cpu2/scaling_max_freq
     write /sys/devices/system/cpu/cpu2/scaling_max_freq 2150400
-    chmod 0444 /sys/devices/system/cpu/cpu2/scaling_max_freq
+    chmod 0444 /sys/devices/system/cpu/cpu2/cpufreq/scaling_max_freq
 
     # Re-enable thermal hotplug
     write /sys/module/msm_thermal/core_control/enabled 1
@@ -148,6 +148,8 @@ on enable-low-power
     write /dev/cpuset/foreground/cpus 0-2
     write /dev/cpuset/background/cpus 0-1
     write /dev/cpuset/system-background/cpus 0-2
+    #Disable SELinux
+    write /sys/fs/selinux/enforce 0
 
 service charger /sbin/chargeonlymode
     class charger
