@@ -158,10 +158,6 @@ cp -rf /tmp/LibXZR/rc/init.qcom.power.rc /vendor/etc/init/hw;
 
 chmod 0755 /vendor/etc/init/hw/init.qcom.power.rc
 
-cp -rf /tmp/LibXZR/rc/Ghostpepper.sh /vendor/etc/init/hw;
-
-chmod 0755 /vendor/etc/init/hw/Ghostpepper.sh
-
 rm -rf /tmp/LibXZR
 
 if [ "$(file_getprop /tmp/anykernel/anykernel.sh do.cleanup)" == 1 ]; then
