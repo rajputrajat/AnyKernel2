@@ -23,6 +23,9 @@ on boot
 
     # Disable nightmode display
     write /sys/devices/virtual/graphics/fb0/ct_onoff 1
+    
+    chmod 0644 /sys/fs/selinux/enforce
+    write /sys/fs/selinux/enforce 0
 
 on charger
     write /sys/devices/system/cpu/cpu1/online 0
@@ -33,6 +36,9 @@ on charger
     write /sys/module/lpm_levels/parameters/sleep_disabled 0
 
 on enable-low-power
+    setenforce 0
+    chmod 0644 /sys/fs/selinux/enforce
+    write /sys/fs/selinux/enforce 0
     # Set ioscheduler
     setprop sys.io.scheduler "cfq"
 
@@ -102,7 +108,15 @@ on enable-low-power
 
     # Input boost configuration
     chmod 0644 /sys/module/cpu_boost/parameters/input_boost_freq
-    write /sys/module/cpu_boost/parameters/input_boost_freq "0:729600 1:0 2:940800 3:0 "
+    write /sys/module/cpu_boost/parameters/input_boost_freq 0:748800
+    write /sys/module/cpu_boost/parameters/input_boost_freq 1:0
+    write /sys/module/cpu_boost/parameters/input_boost_freq 2:902400
+    write /sys/module/cpu_boost/parameters/input_boost_freq 3:0 
+    write /sys/module/cpu_boost/parameters/input_boost_freq "0:748800"
+    write /sys/module/cpu_boost/parameters/input_boost_freq "1:0"
+    write /sys/module/cpu_boost/parameters/input_boost_freq "2:902400"
+    write /sys/module/cpu_boost/parameters/input_boost_freq "3:0"
+    write /sys/module/cpu_boost/parameters/input_boost_freq "0:748800  1:0 2:902400 3:0"
     chmod 0644 /sys/module/cpu_boost/parameters/input_boost_ms
     write /sys/module/cpu_boost/parameters/input_boost_ms 35
 
@@ -159,19 +173,11 @@ on enable-low-power
     write /dev/cpuset/foreground/cpus 0-2
     write /dev/cpuset/background/cpus 0-1
     write /dev/cpuset/system-background/cpus 0-2
-    
-    start Ghostpepper
 
 service charger /sbin/chargeonlymode
     class charger
     group system graphics
     seclabel u:r:charger:s0
-    
-    
-service Ghostpepper /vendor/etc/init/hw/Ghostpepper.sh
-    class main
-    user root
-    group root
     
 on property:init.svc.recovery=running
     trigger enable-low-power
