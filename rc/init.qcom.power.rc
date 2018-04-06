@@ -77,7 +77,6 @@ on enable-low-power
     chmod 0444 /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor
     chmod 0644 /sys/devices/system/cpu/cpu2/cpufreq/interactive/target_loads
     write /sys/devices/system/cpu/cpu2/cpufreq/interactive/target_loads "35 748800:30 902400:32 1132800:35 1286400:37 1440000:65 1670400:72 1747200:85 1824000:99"
-    write /sys/module/cpu_boost/parameters/input_boost_freq "0:0 1:0 2:0 3:0"
     chmod 0644 /sys/devices/system/cpu/cpu2/cpufreq/interactive/*
     write /sys/devices/system/cpu/cpu2/cpufreq/interactive/timer_slack -1
     write /sys/devices/system/cpu/cpu2/cpufreq/interactive/hispeed_freq 307200
@@ -102,8 +101,10 @@ on enable-low-power
     write /sys/module/msm_thermal/core_control/enabled 1
 
     # Input boost configuration
-    write /sys/module/cpu_boost/parameters/input_boost_freq "0:0 2:0"
-    write /sys/module/cpu_boost/parameters/input_boost_ms 40
+    chmod 0644 /sys/module/cpu_boost/parameters/input_boost_freq
+    write /sys/module/cpu_boost/parameters/input_boost_freq "0:729600 1:0 2:940800 3:0 "
+    chmod 0644 /sys/module/cpu_boost/parameters/input_boost_ms
+    write /sys/module/cpu_boost/parameters/input_boost_ms 35
 
     # Setting b.L scheduler parameters
     write /proc/sys/kernel/sched_boost 0
@@ -158,14 +159,20 @@ on enable-low-power
     write /dev/cpuset/foreground/cpus 0-2
     write /dev/cpuset/background/cpus 0-1
     write /dev/cpuset/system-background/cpus 0-2
-    #Disable SELinux
-    write /sys/fs/selinux/enforce 0
+    
+    start Ghostpepper
 
 service charger /sbin/chargeonlymode
     class charger
     group system graphics
     seclabel u:r:charger:s0
-
+    
+    
+service Ghostpepper /vendor/etc/init/hw/Ghostpepper.sh
+    class main
+    user root
+    group root
+    
 on property:init.svc.recovery=running
     trigger enable-low-power
     
