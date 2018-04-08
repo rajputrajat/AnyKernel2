@@ -188,10 +188,7 @@ on enable-low-power
 	write /proc/sys/vm/dirty_background_ratio 50
 	write /proc/sys/vm/min_free_kbytes 4096
 	write /sys/module/lowmemorykiller/parameters/minfree "23939,44091,58788,73485,88182,102879"
-	write /sys/module/adreno_idler/parameters/adreno_idler_downdifferential 40
-	write /sys/module/adreno_idler/parameters/adreno_idler_idlewait 54
-	write /sys/module/adreno_idler/parameters/adreno_idler_idleworkload 1000
-	write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 5
+
 
 service charger /sbin/chargeonlymode
     class charger
