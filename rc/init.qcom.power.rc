@@ -181,7 +181,6 @@ on enable-low-power
 
 	write /sys/class/kgsl/kgsl-3d0/max_gpuclk 624000000
 	write /sys/class/kgsl/kgsl-3d0/devfreq/governor msm-adreno-tz
- write /sys/module/lowmemorykiller/parameters/minfree "7006,14012,21018,27904,35030,42036"
 service charger /sbin/chargeonlymode
     class charger
     group system graphics
