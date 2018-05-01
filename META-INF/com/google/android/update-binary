@@ -54,9 +54,12 @@ mount -t ext4 -o rw /dev/block/bootdevice/by-name/vendor /vendor;
 if [ -e /vendor/build.prop ];
 then
 ui_print "*This ROM is supported";
+ui_print " ";
+ui_print " ";
+ui_print " ";
 else
 umount /vendor;
-abort "*Unsupported ROM!(NOT A TREBLE ROM)";
+abort "*Unsupported ROM!(NOT A TREBLE ROM)"
 fi;
 
 cleanup;
