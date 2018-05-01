@@ -58,13 +58,13 @@ rm -rf /vendor;
 mkdir /vendor;
 mount -t ext4 -o rw /dev/block/bootdevice/by-name/vendor /vendor;
 
-if [ -e /vendor/build.prop ]
+if [ -e /vendor/build.prop ];
 then
 ui_print "*This ROM is supported";
 else
 umount /vendor;
 abort "*Unsupported ROM!(NOT A TREBLE ROM)";
-fi
+fi;
 
 cleanup;
 mkdir -p /tmp/anykernel/bin;
@@ -167,13 +167,15 @@ umount /vendor 2>/dev/null;
 umount /data 2>/dev/null;
 ui_print " ";
 ui_print " ";
-ui_print "Installing cpu profiles...";
+ui_print "Mounting /vendor";
 rm -rf /vendor;
 mkdir /vendor;
 mount -t ext4 -o rw /dev/block/bootdevice/by-name/vendor /vendor;
 mkdir -p /tmp/LibXZR;
 cd /tmp/LibXZR;
 unzip -o "$ZIPFILE";
+
+ui_print "Installing cpu profiles...";
 
 cp -rf /tmp/LibXZR/rc/init.qcom.power.rc /vendor/etc/init/hw;
 
