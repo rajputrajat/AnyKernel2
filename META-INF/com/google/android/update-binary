@@ -59,7 +59,7 @@ ui_print " ";
 ui_print " ";
 else
 umount /vendor;
-abort "*Unsupported ROM!(NOT A TREBLE ROM)"
+abort "*Unsupported ROM!(NOT A TREBLE ROM)";
 fi;
 
 cleanup;
