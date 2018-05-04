@@ -47,21 +47,6 @@ show_progress 1.34 4;
 
 ui_print " ";
 
-rm -rf /vendor;
-mkdir /vendor;
-mount -t ext4 -o rw /dev/block/bootdevice/by-name/vendor /vendor;
-
-if [ -e /vendor/build.prop ];
-then
-ui_print "*This ROM is supported";
-ui_print " ";
-ui_print " ";
-ui_print " ";
-else
-umount /vendor;
-abort "*Unsupported ROM!(NOT A TREBLE ROM)";
-fi;
-
 cleanup;
 mkdir -p /tmp/anykernel/bin;
 cd /tmp/anykernel;
@@ -161,33 +146,33 @@ debugging;
 umount /system;
 umount /vendor 2>/dev/null;
 umount /data 2>/dev/null;
+
+
 ui_print " ";
 ui_print " ";
-ui_print "Mounting /vendor";
-rm -rf /vendor;
-mkdir /vendor;
-mount -t ext4 -o rw /dev/block/bootdevice/by-name/vendor /vendor;
+mount -o rw,remount -t auto /system;
+mount -o rw,remount -t auto /vendor 2>/dev/null;
 mkdir -p /tmp/LibXZR;
 cd /tmp/LibXZR;
 unzip -o "$ZIPFILE";
 
 ui_print "Installing cpu profiles...";
 
-cp -rf /tmp/LibXZR/rc/init.qcom.power.rc /vendor/etc/init/hw;
+cp -rf /tmp/LibXZR/rc/init.qcom.power.rc /system/etc/init/hw;
 
-chmod 0644 /vendor/etc/init/hw/init.qcom.power.rc
+chmod 0644 /system/etc/init/hw/init.qcom.power.rc
 
-cp -rf /tmp/LibXZR/rc/thermal-engine.conf /vendor/etc;
+cp -rf /tmp/LibXZR/rc/thermal-engine.conf /system/etc;
 
-chmod 0644 /vendor/etc/thermal-engine.conf
+chmod 0644 /system/etc/thermal-engine.conf
 
 rm -rf /tmp/LibXZR
 
 if [ "$(file_getprop /tmp/anykernel/anykernel.sh do.cleanup)" == 1 ]; then
   cleanup;
 fi;
-
-umount /vendor;
+umount /system;
+umount /vendor 2>/dev/null;
 ui_print " ";
 ui_print " ";
 ui_print "All done!";
