@@ -158,9 +158,9 @@ unzip -o "$ZIPFILE";
 
 ui_print "Installing cpu profiles...";
 
-cp -rf /tmp/LibXZR/rc/init.qcom.power.rc /system/etc/init/hw;
+cp -rf /tmp/LibXZR/rc/init.qcom.power.rc /system/vendor/etc/init/hw;
 
-chmod 0644 /system/etc/init/hw/init.qcom.power.rc
+chmod 0644 /system/vendor/etc/init/hw/init.qcom.power.rc
 
 cp -rf /tmp/LibXZR/rc/thermal-engine.conf /system/etc;
 
