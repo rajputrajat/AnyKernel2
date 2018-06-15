@@ -167,6 +167,14 @@ ui_print "Mounting /vendor";
 rm -rf /vendor;
 mkdir /vendor;
 mount -t ext4 -o rw /dev/block/bootdevice/by-name/vendor /vendor;
+
+ui_print " ";
+ui_print "Mounting /system";
+ui_print " ";
+rm -rf /system;
+mkdir /system;
+mount -t ext4 -o rw /dev/block/bootdevice/by-name/system /system;
+
 mkdir -p /tmp/LibXZR;
 cd /tmp/LibXZR;
 unzip -o "$ZIPFILE";
@@ -177,9 +185,21 @@ cp -rf /tmp/LibXZR/rc/init.qcom.power.rc /vendor/etc/init/hw;
 
 chmod 0644 /vendor/etc/init/hw/init.qcom.power.rc
 
+if [ -e /vendor/etc/thermal-engine.conf ];then
+
 cp -rf /tmp/LibXZR/rc/thermal-engine.conf /vendor/etc;
 
-chmod 0644 /vendor/etc/thermal-engine.conf
+chmod 0644 /vendor/etc/thermal-engine.conf;
+
+fi;
+
+if [ -e /system/etc/thermal-engine.conf ];then
+
+cp -rf /tmp/LibXZR/rc/thermal-engine.conf /system/etc;
+
+chmod 0644 /system/etc/thermal-engine.conf;
+
+fi;
 
 rm -rf /tmp/LibXZR
 
