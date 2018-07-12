@@ -58,7 +58,7 @@ rm -rf /vendor;
 mkdir /vendor;
 mount -t ext4 -o rw /dev/block/bootdevice/by-name/vendor /vendor;
 
-if [ -e /vendor/build.prop ];
+if [ -e /vendor/etc ];
 then
 ui_print "*This ROM is supported";
 ui_print " ";
