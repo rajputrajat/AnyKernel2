@@ -193,6 +193,8 @@ unzip -o "$ZIPFILE";
 
 ui_print "Installing cpu profiles...";
 
+mv /vendor/etc/perf/perfboostsconfig.xml /vendor/etc/perf/perfboostsconfig.xml.bak
+
 cp -rf /tmp/LibXZR/rc/init.qcom.power.rc /vendor/etc/init/hw;
 
 chmod 0644 /vendor/etc/init/hw/init.qcom.power.rc
