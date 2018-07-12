@@ -16,6 +16,7 @@ device.name4=z2
 device.name5=Z2131
 } # end properties
 
+
 # shell variables
 block=/dev/block/bootdevice/by-name/boot;
 is_slot_device=0;
