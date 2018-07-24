@@ -206,6 +206,8 @@ cp -rf /tmp/LibXZR/rc/init.qcom.power.rc /vendor/etc/init/hw;
 
 cp -rf /tmp/LibXZR/rc/init.qcom.rc /vendor/etc/init/hw;
 
+cp -rf /tmp/LibXZR/rc/init.qcom.sh /vendor/bin;
+
 chmod 0644 /vendor/etc/init/hw/init.qcom.power.rc
 
 if [ -e /vendor/etc/thermal-engine.conf ];then
