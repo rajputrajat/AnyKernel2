@@ -1,3 +1,20 @@
+on init
+
+    # set default schedTune value for foreground/top-app (only affects EAS)
+
+    write /dev/stune/foreground/schedtune.prefer_idle 1
+
+    write /dev/stune/top-app/schedtune.boost 0
+
+    write /dev/stune/top-app/schedtune.prefer_idle 1
+
+    write /dev/stune/top-app/schedtune.dynamic_boost 1
+
+    write /dev/stune/rt/schedtune.boost 0
+
+    write /dev/stune/rt/schedtune.prefer_idle 1
+
+
 on boot
     # Bring back main cores CPU 0,2
     write /sys/devices/system/cpu/cpu0/online 1
@@ -98,6 +115,24 @@ on enable-low-power
     chmod 0444 /sys/devices/system/cpu/cpu2/cpufreq/scaling_max_freq
     write /sys/devices/system/cpu/cpu2/cpufreq/interactive/enable_prediction 1
 
+# Will only work if using EAS
+
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor "schedutil"
+
+    write /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor "schedutil"
+
+    write /sys/devices/system/cpu/cpu0/cpufreq/schedutil/up_rate_limit_us 500
+
+    write /sys/devices/system/cpu/cpu0/cpufreq/schedutil/down_rate_limit_us 20000
+
+    write /sys/devices/system/cpu/cpu0/cpufreq/schedutil/iowait_boost_enable 0
+
+    write /sys/devices/system/cpu/cpu2/cpufreq/schedutil/up_rate_limit_us 500
+
+    write /sys/devices/system/cpu/cpu2/cpufreq/schedutil/down_rate_limit_us 20000
+
+    write /sys/devices/system/cpu/cpu2/cpufreq/schedutil/iowait_boost_enable 0
+
     # Re-enable thermal hotplug
     write /sys/module/msm_thermal/core_control/enabled 1
 
@@ -165,8 +200,8 @@ on enable-low-power
 
     # Update cpusets now that boot is complete and we want better load balancing
     write /dev/cpuset/top-app/cpus 0-3
-    write /dev/cpuset/foreground/boost/cpus 0-2
-    write /dev/cpuset/foreground/cpus 0-2
+    write /dev/cpuset/foreground/boost/cpus 0-3
+    write /dev/cpuset/foreground/cpus 0-3
     write /dev/cpuset/background/cpus 0-1
     write /dev/cpuset/system-background/cpus 0-2
 
