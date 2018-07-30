@@ -4,7 +4,7 @@ on init
 
     write /dev/stune/foreground/schedtune.prefer_idle 1
 
-    write /dev/stune/top-app/schedtune.boost 7
+    write /dev/stune/top-app/schedtune.boost 5
 
     write /dev/stune/top-app/schedtune.prefer_idle 1
 
@@ -105,7 +105,7 @@ on enable-low-power
 
     write /dev/stune/foreground/schedtune.prefer_idle 1
 
-    write /dev/stune/top-app/schedtune.boost 8
+    write /dev/stune/top-app/schedtune.boost 5
 
     write /dev/stune/top-app/schedtune.sched_boost 10
 
@@ -114,6 +114,8 @@ on enable-low-power
     write /dev/stune/rt/schedtune.boost 0
 
     write /dev/stune/rt/schedtune.prefer_idle 1
+    
+    write /sys/module/cpu_boost/parameters/dynamic_stune_boost 1
 
     # Re-enable thermal hotplug
     write /sys/module/msm_thermal/core_control/enabled 1
@@ -199,4 +201,5 @@ on property:init.svc.recovery=running
     
 on property:sys.boot_completed=1
     trigger enable-low-power
+
 
