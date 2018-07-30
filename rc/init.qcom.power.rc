@@ -105,7 +105,9 @@ on enable-low-power
 
     write /dev/stune/foreground/schedtune.prefer_idle 1
 
-    write /dev/stune/top-app/schedtune.boost 7
+    write /dev/stune/top-app/schedtune.boost 8
+
+    write /dev/stune/top-app/schedtune.sched_boost 10
 
     write /dev/stune/top-app/schedtune.prefer_idle 1
 
