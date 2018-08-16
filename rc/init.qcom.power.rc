@@ -1,3 +1,8 @@
+on init
+    write /sys/kernel/mm/ksm/run 0
+    write /sys/kernel/mm/transparent_hugepage/enabled never
+    write /sys/kernel/mm/transparent_hugepage/defrag never
+
 on boot
     # Bring back main cores CPU 0,2
     write /sys/devices/system/cpu/cpu0/online 1
@@ -28,9 +33,6 @@ on charger
     start thermal-engine
 
 on enable-low-power
-    setenforce 0
-    chmod 0644 /sys/fs/selinux/enforce
-    write /sys/fs/selinux/enforce 0
     # Set ioscheduler
     setprop sys.io.scheduler "cfq"
 
