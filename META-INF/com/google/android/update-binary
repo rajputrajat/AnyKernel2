@@ -204,8 +204,6 @@ mv /vendor/etc/perf/perfboostsconfig.xml /vendor/etc/perf/perfboostsconfig.xml.b
 
 cp -rf /tmp/LibXZR/rc/init.qcom.power.rc /vendor/etc/init/hw;
 
-cp -rf /tmp/LibXZR/rc/init.qcom.rc /vendor/etc/init/hw;
-
 cp -rf /tmp/LibXZR/rc/init.qcom.sh /vendor/bin;
 
 chmod 755 /vendor/bin/init.qcom.sh;
