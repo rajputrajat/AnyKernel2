@@ -4,7 +4,7 @@
 ## AnyKernel setup
 # begin properties
 properties() {
-kernel.string="Nameless Kernel by LibXZR(@xzr467706992)"
+kernel.string="Moxie Kernel by Ajai Vasudeve"
 do.devicecheck=0
 do.modules=0
 do.cleanup=1
