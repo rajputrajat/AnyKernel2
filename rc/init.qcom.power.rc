@@ -70,7 +70,7 @@ on boot
 	write /sys/devices/system/cpu/cpu0/cpufreq/interactive/boost 0
 	write /sys/devices/system/cpu/cpu0/cpufreq/interactive/fast_ramp_down 0
 	write /sys/devices/system/cpu/cpu0/cpufreq/interactive/align_windows 1
-    write /sys/devices/system/cpu/cpu0/cpufreq/interactive/target_loads "38 800000:43 960000:87 1200000:96 99"
+    write /sys/devices/system/cpu/cpu0/cpufreq/interactive/target_loads "38 800000:43 960000:87 1300000:91 1400000:96"
     write /sys/devices/system/cpu/cpu0/cpufreq/interactive/min_sample_time 0
     write /sys/devices/system/cpu/cpu0/cpufreq/interactive/max_freq_hysteresis 0
 	write /sys/devices/system/cpu/cpu0/cpufreq/interactive/boostpulse_duration 0
