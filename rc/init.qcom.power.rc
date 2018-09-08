@@ -60,7 +60,10 @@ on boot
 	# Input boost config
     write /sys/module/cpu_boost/parameters/input_boost_freq "0:960000 1:0 2:883200 3:0"
     write /sys/module/cpu_boost/parameters/input_boost_ms 60
-
+	
+	# Import Spectrum
+	import /init.spectrum.rc
+	
 on charger
     wait /dev/block/platform/soc/${ro.boot.bootdevice}
     # Enable UFS powersaving
