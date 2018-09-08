@@ -74,46 +74,42 @@ on property:persist.spectrum.profile=1
     # Add configs here
 	write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor "interactive"
     write /sys/devices/system/cpu/cpu0/cpufreq/interactive/use_sched_load 0
-    write /sys/devices/system/cpu/cpu0/cpufreq/interactive/use_migration_notif 0
-    write /sys/devices/system/cpu/cpu0/cpufreq/interactive/above_hispeed_delay 0
-    write /sys/devices/system/cpu/cpu0/cpufreq/interactive/go_hispeed_load 95
+    write /sys/devices/system/cpu/cpu0/cpufreq/interactive/use_migration_notif 1
+    write /sys/devices/system/cpu/cpu0/cpufreq/interactive/above_hispeed_delay "0"
+    write /sys/devices/system/cpu/cpu0/cpufreq/interactive/go_hispeed_load 100
     write /sys/devices/system/cpu/cpu0/cpufreq/interactive/timer_rate 10000
 	write /sys/devices/system/cpu/cpu0/cpufreq/interactive/timer_slack -1
     write /sys/devices/system/cpu/cpu0/cpufreq/interactive/hispeed_freq 1228800
     write /sys/devices/system/cpu/cpu0/cpufreq/interactive/io_is_busy 0
 	write /sys/devices/system/cpu/cpu0/cpufreq/interactive/boost 0
 	write /sys/devices/system/cpu/cpu0/cpufreq/interactive/fast_ramp_down 0
-	write /sys/devices/system/cpu/cpu0/cpufreq/interactive/screen_off_maxfreq 1593600
-	write /sys/devices/system/cpu/cpu2/cpufreq/interactive/powersave_bias 1
 	write /sys/devices/system/cpu/cpu0/cpufreq/interactive/align_windows 1
-    write /sys/devices/system/cpu/cpu0/cpufreq/interactive/target_loads "68 307200:38 422400:40 480000:40 652800:40 729600:42 844800:42 960000:70 1228800:75"
-    write /sys/devices/system/cpu/cpu0/cpufreq/interactive/min_sample_time 49000
+    write /sys/devices/system/cpu/cpu0/cpufreq/interactive/target_loads "38 800000:43 960000:74 1100000:78 1300000:90 1400000:90 1500000:99"
+    write /sys/devices/system/cpu/cpu0/cpufreq/interactive/min_sample_time 20000
     write /sys/devices/system/cpu/cpu0/cpufreq/interactive/max_freq_hysteresis 0
 	write /sys/devices/system/cpu/cpu0/cpufreq/interactive/boostpulse_duration 0
     write /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq 307200
-    write /sys/devices/system/cpu/cpu0/cpufreq/interactive/ignore_hispeed_on_notif 0
-    write /sys/devices/system/cpu/cpu0/cpufreq/interactive/enable_prediction 0
+    write /sys/devices/system/cpu/cpu0/cpufreq/interactive/ignore_hispeed_on_notif 1
+    write /sys/devices/system/cpu/cpu0/cpufreq/interactive/enable_prediction 1
 	
-	write /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor "interactive"
+    write /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor "interactive"
     write /sys/devices/system/cpu/cpu2/cpufreq/interactive/use_sched_load 0
-    write /sys/devices/system/cpu/cpu2/cpufreq/interactive/use_migration_notif 0
-    write /sys/devices/system/cpu/cpu2/cpufreq/interactive/above_hispeed_delay 0
-    write /sys/devices/system/cpu/cpu2/cpufreq/interactive/go_hispeed_load 95
-    write /sys/devices/system/cpu/cpu2/cpufreq/interactive/timer_rate 10000
-    write /sys/devices/system/cpu/cpu2/cpufreq/interactive/hispeed_freq 1401600
+    write /sys/devices/system/cpu/cpu2/cpufreq/interactive/use_migration_notif 1
+    write /sys/devices/system/cpu/cpu2/cpufreq/interactive/above_hispeed_delay "0"
+    write /sys/devices/system/cpu/cpu2/cpufreq/interactive/go_hispeed_load 100
+    write /sys/devices/system/cpu/cpu2/cpufreq/interactive/timer_rate 1000
+    write /sys/devices/system/cpu/cpu2/cpufreq/interactive/hispeed_freq 1555200
     write /sys/devices/system/cpu/cpu2/cpufreq/interactive/io_is_busy 0
-    write /sys/devices/system/cpu/cpu2/cpufreq/interactive/target_loads "69 307200:38 403200:40 480000:40 652800:42 729600:42 844800:44 940800:75 1824000:78 1996800:92 2073600:2 2150400:99"
-    write /sys/devices/system/cpu/cpu2/cpufreq/interactive/min_sample_time 19000
+    write /sys/devices/system/cpu/cpu2/cpufreq/interactive/target_loads "35 900000:53 1100000:57 1300000:78 1500000:83 1700000:90 1900000:95 20736000:15 21504000:99"
+    write /sys/devices/system/cpu/cpu2/cpufreq/interactive/min_sample_time 20000
 	write /sys/devices/system/cpu/cpu2/cpufreq/interactive/boost 0
 	write /sys/devices/system/cpu/cpu2/cpufreq/interactive/timer_slack -1
 	write /sys/devices/system/cpu/cpu2/cpufreq/interactive/fast_ramp_down 0
-	write /sys/devices/system/cpu/cpu2/cpufreq/interactive/screen_off_maxfreq 2150400
-	write /sys/devices/system/cpu/cpu2/cpufreq/interactive/powersave_bias 1
 	write /sys/devices/system/cpu/cpu2/cpufreq/interactive/align_windows 1
     write /sys/devices/system/cpu/cpu2/cpufreq/interactive/max_freq_hysteresis 0
     write /sys/devices/system/cpu/cpu2/cpufreq/scaling_min_freq 307200
     write /sys/devices/system/cpu/cpu2/cpufreq/interactive/ignore_hispeed_on_notif 0
-    write /sys/devices/system/cpu/cpu2/cpufreq/interactive/enable_prediction 0
+    write /sys/devices/system/cpu/cpu2/cpufreq/interactive/enable_prediction 1
 	write /sys/devices/system/cpu/cpu2/cpufreq/interactive/boostpulse_duration 0
 	
 	write /sys/kernel/msm_thermal/enabled 0
