@@ -58,6 +58,16 @@ on property:persist.spectrum.profile=0
     write /sys/devices/system/cpu/cpu2/cpufreq/interactive/ignore_hispeed_on_notif 0
     write /sys/devices/system/cpu/cpu2/cpufreq/interactive/enable_prediction 0
 	write /sys/devices/system/cpu/cpu2/cpufreq/interactive/boostpulse_duration 0
+	
+	write /sys/kernel/msm_thermal/enabled 0
+    write /sys/kernel/msm_thermal/zone0 "1401600 1708800 41 39"
+    write /sys/kernel/msm_thermal/zone1 "1324800 1555200 45 43"
+    write /sys/kernel/msm_thermal/zone2 "1228800 1401600 47 45"
+    write /sys/kernel/msm_thermal/zone3 "960000 940800 54 48"
+    write /sys/kernel/msm_thermal/sampling_ms 8000
+	write /sys/kernel/msm_thermal/enabled 1
+	start start thermal-engine
+	trigger enable-low-power
 
 # Performance (based on DrunkSauce Lite)
 on property:persist.spectrum.profile=1
@@ -105,6 +115,16 @@ on property:persist.spectrum.profile=1
     write /sys/devices/system/cpu/cpu2/cpufreq/interactive/ignore_hispeed_on_notif 0
     write /sys/devices/system/cpu/cpu2/cpufreq/interactive/enable_prediction 0
 	write /sys/devices/system/cpu/cpu2/cpufreq/interactive/boostpulse_duration 0
+	
+	write /sys/kernel/msm_thermal/enabled 0
+    write /sys/kernel/msm_thermal/zone0 "1401600 1708800 45 43"
+    write /sys/kernel/msm_thermal/zone1 "1324800 1555200 49 47"
+    write /sys/kernel/msm_thermal/zone2 "1228800 1401600 52 49"
+    write /sys/kernel/msm_thermal/zone3 "960000 940800 54 48"
+    write /sys/kernel/msm_thermal/sampling_ms 8000
+	write /sys/kernel/msm_thermal/enabled 1
+	start start thermal-engine
+	trigger enable-low-power
 
 # Battery
 on property:persist.spectrum.profile=2
@@ -152,6 +172,16 @@ on property:persist.spectrum.profile=2
     write /sys/devices/system/cpu/cpu2/cpufreq/interactive/ignore_hispeed_on_notif 0
     write /sys/devices/system/cpu/cpu2/cpufreq/interactive/enable_prediction 0
 	write /sys/devices/system/cpu/cpu2/cpufreq/interactive/boostpulse_duration 0
+	
+	write /sys/kernel/msm_thermal/enabled 0
+    write /sys/kernel/msm_thermal/zone0 "1401600 1708800 40 38"
+    write /sys/kernel/msm_thermal/zone1 "1324800 1555200 44 41"
+    write /sys/kernel/msm_thermal/zone2 "1228800 1401600 47 44"
+    write /sys/kernel/msm_thermal/zone3 "960000 940800 50 48"
+    write /sys/kernel/msm_thermal/sampling_ms 8000
+	write /sys/kernel/msm_thermal/enabled 1
+	start start thermal-engine
+	trigger enable-low-power
 
 # Gaming
 on property:persist.spectrum.profile=3
@@ -199,3 +229,13 @@ on property:persist.spectrum.profile=3
     write /sys/devices/system/cpu/cpu2/cpufreq/interactive/ignore_hispeed_on_notif 0
     write /sys/devices/system/cpu/cpu2/cpufreq/interactive/enable_prediction 0
 	write /sys/devices/system/cpu/cpu2/cpufreq/interactive/boostpulse_duration 0
+	
+	write /sys/kernel/msm_thermal/enabled 0
+    write /sys/kernel/msm_thermal/zone0 "1401600 1708800 41 39"
+    write /sys/kernel/msm_thermal/zone1 "1324800 1555200 47 43"
+    write /sys/kernel/msm_thermal/zone2 "1228800 1401600 51 46"
+    write /sys/kernel/msm_thermal/zone3 "960000 940800 54 48"
+    write /sys/kernel/msm_thermal/sampling_ms 8000
+	write /sys/kernel/msm_thermal/enabled 1
+	start start thermal-engine
+	trigger enable-low-power
