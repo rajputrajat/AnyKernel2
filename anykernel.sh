@@ -38,6 +38,10 @@ chown -R root:root $ramdisk/*;
 ## AnyKernel install
 dump_boot;
 
+# begin ramdisk changes
+insert_line init.rc "init.spectrum.rc" after "import /init.qcom.usb.rc" "import /init.spectrum.rc\n";
+# end ramdisk changes
+
 write_boot;
 
 ## end install
