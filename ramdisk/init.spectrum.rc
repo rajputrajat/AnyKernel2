@@ -30,7 +30,7 @@ on property:persist.spectrum.profile=0
 	write /sys/devices/system/cpu/cpu0/cpufreq/interactive/powersave_bias 1
 	write /sys/devices/system/cpu/cpu0/cpufreq/interactive/align_windows 1
     write /sys/devices/system/cpu/cpu0/cpufreq/interactive/target_loads "80 307200:38 400000:41 480000:43 552600:43 652800:45 729600:45 844800:50 960000:83 1401600:86"
-    write /sys/devices/system/cpu/cpu0/cpufreq/interactive/min_sample_time 60000
+    write /sys/devices/system/cpu/cpu0/cpufreq/interactive/min_sample_time 40000
     write /sys/devices/system/cpu/cpu0/cpufreq/interactive/max_freq_hysteresis 0
 	write /sys/devices/system/cpu/cpu0/cpufreq/interactive/boostpulse_duration 0
     write /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq 307200
@@ -46,7 +46,7 @@ on property:persist.spectrum.profile=0
     write /sys/devices/system/cpu/cpu2/cpufreq/interactive/hispeed_freq 1248000
     write /sys/devices/system/cpu/cpu2/cpufreq/interactive/io_is_busy 0
     write /sys/devices/system/cpu/cpu2/cpufreq/interactive/target_loads "80 307200:38 400000:40 480000:40 552600:42 652800:45 729600:47 806400:55 883200:60 1401600:85"
-    write /sys/devices/system/cpu/cpu2/cpufreq/interactive/min_sample_time 60000
+    write /sys/devices/system/cpu/cpu2/cpufreq/interactive/min_sample_time 40000
 	write /sys/devices/system/cpu/cpu2/cpufreq/interactive/boost 0
 	write /sys/devices/system/cpu/cpu2/cpufreq/interactive/timer_slack -1
 	write /sys/devices/system/cpu/cpu2/cpufreq/interactive/fast_ramp_down 0
@@ -60,7 +60,7 @@ on property:persist.spectrum.profile=0
 	write /sys/devices/system/cpu/cpu2/cpufreq/interactive/boostpulse_duration 0
 	
 	write /sys/kernel/msm_thermal/enabled 0
-    write /sys/kernel/msm_thermal/zone0 "1401600 1708800 41 39"
+    write /sys/kernel/msm_thermal/zone0 "1401600 1708800 42 40"
     write /sys/kernel/msm_thermal/zone1 "1324800 1555200 45 43"
     write /sys/kernel/msm_thermal/zone2 "1228800 1401600 47 45"
     write /sys/kernel/msm_thermal/zone3 "960000 940800 54 48"
@@ -239,4 +239,3 @@ on property:persist.spectrum.profile=3
 	write /sys/kernel/msm_thermal/enabled 1
 	start start thermal-engine
 	trigger enable-low-power
-	
