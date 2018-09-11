@@ -141,7 +141,7 @@ on property:persist.spectrum.profile=2
 	write /sys/devices/system/cpu/cpu0/cpufreq/interactive/boost 0
 	write /sys/devices/system/cpu/cpu0/cpufreq/interactive/fast_ramp_down 0
 	write /sys/devices/system/cpu/cpu0/cpufreq/interactive/screen_off_maxfreq 729600
-	write /sys/devices/system/cpu/cpu2/cpufreq/interactive/powersave_bias 1
+	write /sys/devices/system/cpu/cpu0/cpufreq/interactive/powersave_bias 1
 	write /sys/devices/system/cpu/cpu0/cpufreq/interactive/align_windows 1
     write /sys/devices/system/cpu/cpu0/cpufreq/interactive/target_loads "88 307200:40 400000:45 480000:55 552600:59 652800:67 729600:72 844800:75 960000:91 1401600:94"
     write /sys/devices/system/cpu/cpu0/cpufreq/interactive/min_sample_time 20000
@@ -198,7 +198,7 @@ on property:persist.spectrum.profile=3
 	write /sys/devices/system/cpu/cpu0/cpufreq/interactive/boost 0
 	write /sys/devices/system/cpu/cpu0/cpufreq/interactive/fast_ramp_down 0
 	write /sys/devices/system/cpu/cpu0/cpufreq/interactive/screen_off_maxfreq 960000
-	write /sys/devices/system/cpu/cpu2/cpufreq/interactive/powersave_bias 1
+	write /sys/devices/system/cpu/cpu0/cpufreq/interactive/powersave_bias 1
 	write /sys/devices/system/cpu/cpu0/cpufreq/interactive/align_windows 1
     write /sys/devices/system/cpu/cpu0/cpufreq/interactive/target_loads "75 307200:38 422400:48 480000:53 652800:56 729600:60 844800:70 960000:75 1228800:77 1401600:79 1478400:85"
     write /sys/devices/system/cpu/cpu0/cpufreq/interactive/min_sample_time 49000
