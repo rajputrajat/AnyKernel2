@@ -99,7 +99,7 @@ on property:persist.spectrum.profile=1
     write /sys/devices/system/cpu/cpu2/cpufreq/interactive/use_migration_notif 1
     write /sys/devices/system/cpu/cpu2/cpufreq/interactive/above_hispeed_delay "0"
     write /sys/devices/system/cpu/cpu2/cpufreq/interactive/go_hispeed_load 90
-    write /sys/devices/system/cpu/cpu2/cpufreq/interactive/timer_rate 1000
+    write /sys/devices/system/cpu/cpu2/cpufreq/interactive/timer_rate 10000
     write /sys/devices/system/cpu/cpu2/cpufreq/interactive/hispeed_freq 1555200
     write /sys/devices/system/cpu/cpu2/cpufreq/interactive/io_is_busy 0
 	write /sys/devices/system/cpu/cpu2/cpufreq/interactive/screen_off_maxfreq 21504000
